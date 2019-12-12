@@ -1,0 +1,10 @@
+10 images * (1 + 4 augmentations) * 10 epochs [384] = 500 images -> half an hour
+
+unet + efficientnetb4
+train and validation on subset of first 10 images of provided dataset
+
+10i_384_4a_10e:		0.749	0.860	[30 minutes]
+10i_384_9a_10e: 	0.822 	0.905	[1 hour]
+10i_192_4a_10e:		0.724 	0.846
+10i_192_19a_10e:	0.820 	0.895	[40 minutes]
+10i_96_79a_10e:		0.752 	0.863	[40 minutes]
