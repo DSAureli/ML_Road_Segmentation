@@ -23,7 +23,6 @@ def generate_submission():
     if not os.path.exists(PR_OUT_PATH):
         os.makedirs(PR_OUT_PATH)
 
-    #model = load_model(MODEL_NAME)
     model = sm.Unet(BACKBONE, encoder_weights="imagenet")
     model.load_weights(MODEL_NAME)
 

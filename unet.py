@@ -42,15 +42,17 @@ def plot_training_history(history):
 
 if __name__ == "__main__":
 
-    ROOT_PATH = './training_subset/'
-    IMG_DIR = "images"
-    MASK_DIR = "groundtruth"
-    BACKBONE = "efficientnetb4"  # TODO: search sweet-spot between accuracy (increase b) and time (decrease b)
+    ROOT_PATH = "./chicago/"
+    TRAIN_DIR = "training"
+    VAL_DIR = "validation"
+    IMG_DIR = "image"
+    MASK_DIR = "mask"
+    BACKBONE = "efficientnetb4"
     IMG_SIZE = 192  # Unet requires size to be multiple of 32
     AUGM_COUNT = 19
-    BATCH_SIZE = 20
+    BATCH_SIZE = 5
     LR = 0.0001
-    EPOCHS = 100
+    EPOCHS = 10
     MODEL_FILE = "./last_best_model.h5"
 
     # define augmentation
@@ -94,7 +96,9 @@ if __name__ == "__main__":
     # compile keras model with defined optimizer, loss and metrics
     model.compile(optim, sm.losses.binary_focal_dice_loss, metrics)
 
-    train_generator = AugmentedSequence(root_path=ROOT_PATH,
+    # define train and validation generators
+
+    train_generator = AugmentedSequence(root_path=os.path.join(ROOT_PATH, TRAIN_DIR),
                                         img_dir=IMG_DIR,
                                         mask_dir=MASK_DIR,
                                         img_size=IMG_SIZE,
@@ -103,7 +107,7 @@ if __name__ == "__main__":
                                         augm_compose=augm
                                         )
 
-    valid_generator = AugmentedSequence(root_path=ROOT_PATH,
+    valid_generator = AugmentedSequence(root_path=os.path.join(ROOT_PATH, VAL_DIR),
                                         img_dir=IMG_DIR,
                                         mask_dir=MASK_DIR,
                                         img_size=IMG_SIZE,
@@ -131,6 +135,6 @@ if __name__ == "__main__":
     )
 
     plot = plot_training_history(history)
-    plot.savefig(f"100i_{IMG_SIZE}_{AUGM_COUNT}a_{EPOCHS}e.png")
+    plot.savefig(f"300i_{IMG_SIZE}_{AUGM_COUNT}a_{EPOCHS}e.png")
     plot.show()
     

@@ -4,7 +4,47 @@ unet + efficientnetb4
 train and validation on subset of first 10 images of provided dataset
 
 10i_384_4a_10e:		0.749	0.860	[30 minutes]
-10i_384_9a_10e: 	0.822 	0.905	[1 hour]
+10i_384_9a_10e: 	0.822 	0.905	[1 hour]		<--
 10i_192_4a_10e:		0.724 	0.846
-10i_192_19a_10e:	0.820 	0.895	[40 minutes]
+10i_192_19a_10e:	0.820 	0.895	[40 minutes]	<--
 10i_96_79a_10e:		0.752 	0.863	[40 minutes]
+
+
+with different validation set
+
+10i_192_19a_10e_10v:?	[]
+
+
+which is better between augmentations and epochs?
+
+10i_384_4a_20e:		?	[2 hours]
+
+
+on Colab:
+
+100i_384_9a_10e:	0.897 	0.945	[8 hours]
+
+
+local:
+
+100i_192_19a_10e	0.898 	0.945	[5.5 hours]
+
+
+definitives:
+
+100i_192_19a_40e -> 22 hours
+100i_384_9a_30e -> 24 hours
+100i_384_29a_10e -> 24 hours
+300i_384_9a_10e -> 24 hours
+
+300i_192_19a_10e -> 17 hours
+
+
+first 300 -> training
+301 - 350 -> validation
+
+
+300i_192_19a_10e:	0.912 	0.953	[19.30 hours]	ID: 28949
+
+SAVE THE CONSOLE OUTPUT, AS IT ALSO CONTAINS VAL_F1 !
+so that we can make better plot
