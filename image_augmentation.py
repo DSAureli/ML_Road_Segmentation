@@ -31,7 +31,6 @@ class AugmentedSequence(Sequence):
     augm_count : int
         Number of augmentations generated per image.
         If less than 0, then the original images are returned without augmentation (except for cropping).
-        [TODO: outdated - If greater than 0, each batch contains only the equivalent number of augmentations and no original image.]
         If greater than 0, each batch contains the original image and augm_count augmentations.
     augm_compose : albumentations Compose
         Instance of class albumentations.Compose containing the transformations to perform.
@@ -57,17 +56,6 @@ class AugmentedSequence(Sequence):
         self.batch_size = batch_size
         self.augm_compose = augm_compose
 
-        # if augm_count > 0:
-        #     assert augm_compose is not None, "If argument 'augm_count' is greater than 0, argument 'augm' shall not be None"
-        #     assert isinstance(augm_compose, alb.Compose), "Argument 'augm' must be instance of class albumentations.Compose"
-
-        #     self.gen_count = augm_count
-        #     self.augm = True
-        # else:
-        #     self.gen_count = 1
-        #     self.augm = False
-
-        # CHANGE
         self.gen_count = 1 + augm_count
         self.augm = (augm_count > 0)
         if self.augm:
@@ -131,8 +119,6 @@ class AugmentedSequence(Sequence):
                     crop_res = self.crop_compose(image=img, mask=mask)
                     augm_img, augm_mask = crop_res["image"], crop_res["mask"]
 
-                    #if self.augm:
-                    # CHANGE
                     if curr_augm_idx != 0 and self.augm:
                         augm_res = self.augm_compose(image=augm_img, mask=augm_mask)
                         augm_img, augm_mask = augm_res["image"], augm_res["mask"]
