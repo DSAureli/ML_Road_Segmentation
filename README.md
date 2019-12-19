@@ -4,9 +4,9 @@ Repository containing the code for the [Project 2 - Road Segmentation](https://g
 
 The team "Epok" is composed by:
 
-- Nils Frédérik Heiden Olsen ([@nfholsen](https://github.com/nfholsen))
-- Paul Victor Augustin Mermod
-- Davide Nanni ([@DSAureli](https://github.com/DSAureli))
+- Davide Nanni ([davide.nanni@epfl.ch](mailto:davide.nanni@epfl.ch))
+- Nils Frédérik Heiden Olsen ([nils.olsen@epfl.ch](mailto:nils.olsen@epfl.ch))
+- Paul Victor Augustin Mermod ([paul.mermod@epfl.ch](mailto:paul.mermod@epfl.ch))
 
 ## Setup
 
@@ -80,7 +80,7 @@ python run.py -l
 
 ## Results
 
-The best submission on AICrowd (#28949) was obtained by the user DavideNanni on Sat, 14 Dec 2019, 12:32:14, with a F1 score of 0.912 and a secondary score of 0.953. The training was done on a 6 cores @2.60GHz CPU and it lasted ~19.5 hours.
+The best submission on AICrowd (#28949) was obtained by the user DavideNanni on Sat, 14 Dec 2019, 12:32:14, with a F1 score of 0.912 and a secondary score of 0.953. The training was done on a 6 cores @2.60GHz CPU in ~19.5 hours.
 
 ## Reproducibility
 
