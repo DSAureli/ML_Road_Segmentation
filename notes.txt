@@ -10,11 +10,6 @@ train and validation on subset of first 10 images of provided dataset
 10i_96_79a_10e:		0.752 	0.863	[40 minutes]
 
 
-with different validation set
-
-10i_192_19a_10e_10v:?	[]
-
-
 which is better between augmentations and epochs?
 
 10i_384_4a_20e:		?	[2 hours]
@@ -30,7 +25,7 @@ local:
 100i_192_19a_10e	0.898 	0.945	[5.5 hours]
 
 
-definitives:
+definitives?:
 
 100i_192_19a_40e -> 22 hours
 100i_384_9a_30e -> 24 hours
@@ -40,6 +35,8 @@ definitives:
 300i_192_19a_10e -> 17 hours
 
 
+definitive:
+
 first 300 -> training
 301 - 350 -> validation
 
@@ -48,3 +45,10 @@ first 300 -> training
 
 SAVE THE CONSOLE OUTPUT, AS IT ALSO CONTAINS VAL_F1 !
 so that we can make better plot
+
+
+TODO:
+
+100i_80-20_192_0a_10e:
+100i_80-20_192_4a_10e:
+300i_192_4a_10e:

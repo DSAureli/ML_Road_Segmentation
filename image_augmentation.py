@@ -41,7 +41,7 @@ class AugmentedSequence(Sequence):
                  root_path: str = "./training",
                  img_dir: str = "images",
                  mask_dir: str = "groundtruth",
-                 img_size: int = 256,
+                 img_size: int = 384,
                  batch_size: int = 1,
                  augm_count: int = 1,
                  augm_compose: alb.Compose = None
@@ -177,7 +177,6 @@ if __name__ == "__main__":
     TEST_PATH = "./test_augm"
     AUGM_IMG_DIR = IMG_DIR + "_augm"
     AUGM_MASK_DIR = MASK_DIR + "_augm"
-    TEST_COUNT = 10
 
     if os.path.isdir(TEST_PATH):
 
@@ -208,7 +207,7 @@ if __name__ == "__main__":
         orig_img_path = os.path.join(ROOT_PATH, IMG_DIR)
         orig_mask_path = os.path.join(ROOT_PATH, MASK_DIR)
 
-        for img_file in sorted(os.listdir(orig_img_path)) [:TEST_COUNT]:
+        for img_file in sorted(os.listdir(orig_img_path)):
             shutil.copy2(os.path.join(orig_img_path, img_file), test_img_path)
             shutil.copy2(os.path.join(orig_mask_path, img_file), test_mask_path)
 
@@ -242,7 +241,7 @@ if __name__ == "__main__":
         ])
 
     for batch_idx, (augm_img_batch, augm_mask_batch) in \
-        enumerate(AugmentedSequence(root_path=TEST_PATH, img_size=IMG_SIZE, augm_compose=augm, augm_count=1, batch_size=2)):
+        enumerate(AugmentedSequence(root_path=TEST_PATH, img_size=IMG_SIZE, augm_compose=augm, augm_count=3, batch_size=4)):
 
         print(f"{batch_idx}: {len(augm_img_batch)}")
         print("---")
