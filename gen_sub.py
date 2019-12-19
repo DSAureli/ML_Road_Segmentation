@@ -41,14 +41,6 @@ def generate_submission(model_file: str = "./last_best_model.h5",
     -
     """
 
-    #MODEL_NAME = "./last_best_model.h5"
-    #test_set_dir = "./test_set_images/"
-    #pr_out_path = "./out/"
-    #backbone = "efficientnetb4"
-
-    #SUB_FN = "submission_{}.csv".format(datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
-    #sub_fn = "submission.csv"
-
     if not os.path.exists(pr_out_path):
         os.makedirs(pr_out_path)
 

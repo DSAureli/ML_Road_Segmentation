@@ -93,19 +93,6 @@ def train(root_path: str = "./data/",
     -
     """
 
-    #root_path = "./chicago/"
-    #train_dir = "training"
-    #val_dir = "validation"
-    #img_dir = "image"
-    #mask_dir = "mask"
-    #backbone = "efficientnetb4"
-    #img_size = 192  # Unet requires size to be multiple of 32
-    #augm_count = 19
-    #batch_size = 5
-    #LR = 0.0001
-    #EPOCHS = 10
-    #model_file = "./last_best_model.h5"
-
     # define augmentation
 
     augm = alb.Compose([
